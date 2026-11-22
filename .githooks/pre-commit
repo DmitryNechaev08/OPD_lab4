@@ -1,0 +1,3 @@
+#!/bin/sh
+git diff --cached --name-only --diff-filter=ACMR | grep -E "^(Saved|Intermediate|Binaries|DerivedDataCache|\.vs)/" && echo "Ошибка: запрещенная папка!" && exit 1
+git diff --cached --name-only --diff-filter=ACMR | xargs du -m 2>/dev/null | awk '$1 > 50 {print $2}' | grep "." | git check-attr --stdin filter | grep -v ": lfs$" && echo "Ошибка: файл больше 50 МБ и не в LFS!" && exit 1
