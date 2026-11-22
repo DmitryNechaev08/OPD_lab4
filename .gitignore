@@ -1,0 +1,12 @@
+﻿Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Builds/
+.vs/
+.vscode/
+.idea/
+*.sln
+*.suo
+*.log
+*.dmp
